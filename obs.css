@@ -1,0 +1,72 @@
+:root{--indigo:#242b74;--rule:#d8dfeb;--subtle:#555f70}
+.obs-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.6rem;margin:.6rem 0 1.2rem}
+.obs-summary a{display:grid;grid-template-columns:auto 1fr;gap:.2rem .6rem;align-items:start;background:#fff;border:1px solid var(--rule);border-inline-start:5px solid var(--indigo);padding:.55rem .7rem;text-decoration:none;color:inherit}
+.obs-summary a:hover{background:#f4f5fb}
+.obs-summary .n{font:700 1.1rem/1.3 Arial,sans-serif;color:var(--indigo)}
+.obs-summary .t{font-weight:700;line-height:1.45;font-size:.92rem}
+.obs-summary .r{grid-column:2;font-size:.75rem}
+.obs-cat{margin:1.8rem 0 .6rem;padding:.45rem .8rem;background:var(--indigo);color:#fff;font-size:1.05rem}
+.ob{background:#fff;border:1px solid var(--rule);margin:.8rem 0 1.1rem;scroll-margin-top:1rem}
+.ob-head{display:flex;gap:.8rem;align-items:flex-start;padding:.8rem 1rem .4rem}
+.ob-no{flex:none;display:grid;place-items:center;width:2.2rem;height:2.2rem;background:var(--indigo);color:#fff;font:700 1.05rem/1 Arial,sans-serif}
+.ob-head h3{font-size:1.2rem;line-height:1.45;margin:0}
+.ob-head .risk{margin-top:.25rem;display:inline-block}
+.risk{font-size:.75rem;font-weight:700;padding:.05rem .5rem;border-radius:3px;color:#fff;white-space:nowrap}
+.risk-critical{background:#b3261e}.risk-high{background:#d9821a}.risk-medium{background:#b59a1b}.risk-low{background:#6b7488}
+.ob-text{padding:0 1rem .5rem 1rem;padding-inline-start:2.2rem;font-size:.98rem;line-height:1.8;max-width:95ch;margin:.2rem 0 .6rem}
+.ob-text p{margin:.25rem 0}
+.ob-points{margin:.3rem 0 .4rem;padding-inline-start:1.2rem}
+.ob-points li{margin:.15rem 0}
+.ob-done{margin:.3rem 1rem .6rem;padding:.5rem .8rem;background:#eef7f1;border-inline-start:4px solid #1f7a4d;font-size:.92rem;line-height:1.7}
+.ob-done b{color:#1f7a4d}
+.ob-open{margin:.3rem 1rem .6rem;padding:.5rem .8rem;background:#fff6e8;border-inline-start:4px solid #d9821a;font-size:.9rem}
+.ob-media{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.5rem;padding:.2rem 1rem .8rem}
+.ob-media button{position:relative;padding:0;border:1px solid var(--rule);background:#fff;cursor:pointer;text-align:start;font:inherit}
+.ob-media img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.ob-media .cap{display:block;padding:.3rem .4rem;font-size:.76rem;line-height:1.4;color:#2e3a4f}
+.ob-media .play::after{content:"▶";position:absolute;top:calc(37.5% - 1.1rem);left:calc(50% - 1.1rem);width:2.2rem;height:2.2rem;display:grid;place-items:center;background:rgba(16,24,38,.75);color:#fff;border-radius:50%;font-size:.95rem}
+.ob-mail{margin:0 1rem 1rem;border:1px solid var(--rule)}
+.ob-mail>summary{cursor:pointer;padding:.55rem .8rem;font-weight:700;color:var(--indigo);background:#f4f5fb}
+.ob-mail>summary .muted{font-weight:400;font-size:.85rem}
+.mail-list{list-style:none;margin:0;padding:0}
+.mail-list>li{border-top:1px solid var(--rule)}
+.mail-list li.after-mark{border-top:3px solid #b3261e}
+.mail-item>summary{cursor:pointer;display:grid;grid-template-columns:8.5rem 1fr;gap:.6rem;padding:.5rem .8rem;list-style:none;font-size:.9rem;line-height:1.55}
+.mail-item>summary::-webkit-details-marker{display:none}
+.mail-item>summary time{color:var(--indigo);font-weight:700;direction:ltr;text-align:right;font-family:Arial,sans-serif;font-size:.85rem}
+.mail-item>summary .who{display:block;color:var(--subtle);font-size:.78rem}
+.mail-item[open]>summary{background:#fafbfe}
+.mail-body{padding:.4rem .9rem .8rem 1rem;font-size:.86rem}
+.mail-meta{color:var(--subtle);font-size:.78rem;direction:ltr;text-align:left;margin-bottom:.35rem;word-break:break-word}
+.mail-text{white-space:pre-wrap;direction:ltr;text-align:left;background:#f8f9fc;border:1px solid var(--rule);padding:.6rem .7rem;max-height:340px;overflow:auto;font:400 .82rem/1.55 Arial,sans-serif}
+.mail-atts{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
+.mail-atts a{display:inline-flex;align-items:center;gap:.3rem;border:1px solid var(--indigo);padding:.15rem .5rem;font-size:.78rem;text-decoration:none;direction:ltr}
+.mail-atts a:hover{background:var(--indigo);color:#fff}
+.mail-atts .na{border:1px dashed #aab;color:#6b7488;padding:.15rem .5rem;font-size:.76rem;direction:ltr}
+.mail-when{padding:.3rem .8rem;font-size:.78rem;font-weight:700;color:#b3261e;background:#fdf0ef}
+#obs-dialog{width:min(1050px,94vw);padding:.6rem .8rem .8rem;border:0;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+#obs-dialog::backdrop{background:rgba(10,16,30,.78)}
+#obs-dialog img,#obs-dialog video{display:block;width:100%;max-height:80vh;object-fit:contain;background:#101826}
+#obs-dlg-title{margin:0 2rem .4rem 0;font-weight:700;color:var(--indigo);font-size:.92rem}
+#obs-dialog .dlg-close{position:absolute;inset-inline-end:.6rem;top:.4rem;border:0;background:none;font-size:1.2rem;cursor:pointer}
+@media(max-width:720px){.mail-item>summary{grid-template-columns:1fr}.ob-media{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media print{.ob{break-inside:avoid}.ob-mail{display:none}.ob-media .play::after{display:none}}
+.ob-action{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:0;margin:.2rem 1rem .8rem;border:1px solid var(--rule)}
+.ob-action h4{margin:0 0 .35rem;font-size:.95rem}
+.act-done{padding:.6rem .8rem;background:#eef7f1;border-inline-start:4px solid #1f7a4d}
+.act-done h4{color:#1f7a4d}
+.act-sol{padding:.6rem .8rem;background:#f4f5fb;border-inline-start:4px solid var(--indigo)}
+.act-sol h4{color:var(--indigo)}
+.ob-action p,.ob-action li{font-size:.9rem;line-height:1.7;margin:.15rem 0}
+.ob-action ul{margin:0;padding-inline-start:1.1rem}
+.act-open{margin-top:.4rem !important;padding-top:.35rem;border-top:1px dashed #b7c9bd;color:#8a5200}
+.act-link{margin-top:.35rem !important;font-size:.82rem !important}
+.ob-more{margin:0 1rem 1rem;border:1px solid var(--rule)}
+.ob-more>summary{cursor:pointer;padding:.55rem .8rem;font-weight:700;color:var(--indigo);background:#f4f5fb}
+.guards-detail{padding:.4rem .9rem .9rem}
+.guards-detail .guard-section{margin-top:1rem}
+@media(max-width:720px){.ob-action{grid-template-columns:1fr}}
+/* action block stacked full width, with its own photos */
+.ob-action{grid-template-columns:1fr}
+.act-media{padding:.5rem 0 0;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.act-done .ob-media button{background:#fff}
