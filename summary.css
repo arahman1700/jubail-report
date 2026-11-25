@@ -1,10 +1,40 @@
 /* summary page v2 */
 .site-grid,.inc-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:1rem;align-items:start}
-.site-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin:.4rem 0 .6rem}
-.site-metrics div{background:#f6f7fb;border:1px solid var(--line);border-inline-start:4px solid var(--navy);padding:.5rem .65rem}
-.site-metrics b{display:block;color:var(--navy);font-size:1.15rem}
-.site-metrics span{font-size:.8rem;color:var(--muted)}
-.site-list{margin:.2rem 0;padding-inline-start:1.1rem;font-size:.92rem;line-height:1.75}
+.site-profile { min-width: 0; }
+.site-profile dl, .site-profile dd { margin: 0; }
+.site-profile .site-area-total {
+  margin: .4rem 0 1rem;
+  padding: .6rem .85rem;
+  background: #f6f7fb;
+  border-inline-start: 4px solid var(--navy);
+}
+.site-area-total dt, .site-area-split dt { font-size: .88rem; font-weight: 700; }
+.site-area-total dd { display: flex; flex-wrap: wrap; align-items: baseline; gap: .05rem .75rem; }
+.site-profile strong { color: var(--navy); white-space: nowrap; }
+.site-area-total strong { font-size: 1.5rem; }
+.site-area-total span, .site-area-split span { color: var(--muted); font-size: .83rem; }
+.site-equipment { margin-block: .55rem; }
+.site-equipment summary { cursor: pointer; color: var(--navy); font-weight: 700; }
+.site-equipment p { margin: .3rem 0; }
+.site-profile h3 { margin: 0 0 .4rem; font-size: 1.04rem; }
+.site-area-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
+.site-area-split > div { padding: .6rem .7rem; border: 1px solid var(--line); }
+.site-area-split dd { display: grid; gap: .1rem; }
+.site-area-split strong { font-size: 1.13rem; }
+.site-profile .site-facts { margin-block-start: .65rem; }
+.site-facts > div {
+  display: grid;
+  grid-template-columns: minmax(7.8rem, 32%) minmax(0, 1fr);
+  gap: .15rem .65rem;
+  padding: .45rem 0;
+  border-block-end: 1px solid var(--line);
+  font-size: .88rem;
+  line-height: 1.55;
+}
+.site-facts dt { font-weight: 700; }
+@media (max-width: 450px) {
+  .site-area-split, .site-facts > div { grid-template-columns: 1fr; }
+}
 .src-note{font-size:.76rem;color:var(--muted);margin-top:.4rem}
 .site-imgs{display:grid;gap:.6rem}
 .site-imgs figure,.inc-fig{margin:0;background:#fff;border:1px solid var(--line)}
