@@ -70,3 +70,8 @@
 .ob-action{grid-template-columns:1fr}
 .act-media{padding:.5rem 0 0;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
 .act-done .ob-media button{background:#fff}
+
+.ob-media.ob-locks img {
+  object-fit: contain;
+  background: #fff;
+}
