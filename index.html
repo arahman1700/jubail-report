@@ -16,7 +16,7 @@
   @media print {.tag { border:1px solid #999; }.summary-stills.field-photo img { height:110px; } }
  </style>
 <style>.key-points{margin:.4rem 0.8rem;padding-inline-start:1.2rem;line-height:1.85}.key-points li{margin:.2rem 0}.incident-facts.compact dd{font-size:.92rem}</style>
- <link rel="stylesheet" href="summary.css">
+ <link rel="stylesheet" href="summary.css?v=incident">
  <script defer src="lang.js"></script>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
  <link rel="stylesheet" href="routes.css">
@@ -39,13 +39,10 @@
  <h2 id="site-title">المستودع والموقع</h2>
  <div class="site-grid">
   <div class="site-profile">
-   <div class="site-area-brand">
-    <dl class="site-area-total">
+   <dl class="site-area-total">
     <dt>إجمالي مساحة الموقع</dt>
     <dd><strong><bdi>52,900</bdi> م²</strong></dd>
-    </dl>
-    <img class="site-profile-logo" src="assets/logo.svg" alt="نسما للبنية التحتية والتقنية" width="143" height="31">
-   </div>
+   </dl>
    <h3>توزيع مساحة الموقع</h3>
    <dl class="site-area-split">
     <div><dt>مجموع المساحات المحددة</dt><dd><strong><bdi>9,800</bdi> م²</strong><span>المستودعات والطرق والمرافق</span></dd></div>
@@ -105,11 +102,11 @@
  <p class="incident-date"><time datetime="2026-11-20">الجمعة 20 نوفمبر 2026</time></p>
  <h3>الخسارة التقديرية للمخزون</h3>
  <dl class="loss-summary">
-  <div><dt>القيمة التقديرية</dt><dd><bdi>154,750.40</bdi> <span>ريال</span></dd></div>
-  <div><dt>الكمية الواردة في التقرير الأولي</dt><dd><bdi>45</bdi> <span>لفة</span></dd></div>
+  <div><dt>القيمة التقديرية</dt><dd><bdi>154,750.40</bdi> <span>ريال</span><small class="loss-calculation"><bdi>1,120</bdi> متر × <bdi>138.17</bdi> ريال للمتر</small></dd></div>
+  <div><dt>الكمية المسروقة</dt><dd><bdi>45</bdi> <span>لفة</span></dd></div>
   <div><dt>إجمالي طول شريط النحاس</dt><dd><bdi>1,120</bdi> <span>متر</span></dd></div>
  </dl>
- <p class="src-note">شريط نحاس بمقاس <bdi>40 × 6</bdi> مم. احتُسبت القيمة بسعر <bdi>138.17</bdi> ريالاً للمتر، ويُعتمد المبلغ بعد مطابقة الجرد.</p>
+ <p class="src-note">شريط نحاس بمقاس <bdi>40 × 6</bdi> مم. يُعتمد المبلغ بعد مطابقة الجرد.</p>
  <div class="inc-grid incident-layout">
   <div>
    <h3>التسلسل حسب تسجيلات الكاميرات</h3>
@@ -135,37 +132,6 @@
    </dl>
   </div>
  </div>
-</section>
-<section class="box summary-block executive-review" id="causes" aria-labelledby="causes-title">
- <h2 id="causes-title">النتائج التشغيلية والتوجيه المطلوب</h2>
- <div class="review-groups">
-  <article class="review-group">
-   <h3>أثر الحادثة والاستجابة</h3>
-   <dl>
-    <div><dt>خسارة المخزون</dt><dd>يُقدّر الفقد الأولي بـ <bdi>1,120</bdi> متراً من شريط النحاس، بقيمة تقارب <bdi>154,750</bdi> ريالاً. ويُعتمد المبلغ النهائي بعد مطابقة الجرد مع سجلات الاستلام.</dd></div>
-    <div><dt>الإبلاغ والمعالجة</dt><dd>أُبلغت الشرطة وشركة التأمين في <bdi>20</bdi> نوفمبر، وبدأت الحراسة المؤقتة في اليوم نفسه. أُجري جرد المستودع في <bdi>21</bdi> نوفمبر.</dd></div>
-    <div><dt>أثر الفقد على المشاريع</dt><dd>لم يتحدد بعد المشروع الذي خُصصت له المادة أو أثر الفقد على موعد تسليم أعماله. ويتطلب ذلك إفادة من إدارة المشاريع.</dd></div>
-   </dl>
-  </article>
-  <article class="review-group">
-   <h3>جاهزية المستودع وقت الحادثة</h3>
-   <dl>
-    <div><dt>الاستلام والتخزين</dt><dd>بدأ استلام المواد في أكتوبر قبل اكتمال التخزين المغلق. وفي <bdi>11</bdi> نوفمبر أفادت اللوجستيات بأن الموقع غير مناسب لمواصلة الاستلام.</dd></div>
-    <div><dt>متابعة الموقع والاستجابة</dt><dd>لم تكتمل ترتيبات حماية المخزون ومتابعته عند بدء التشغيل. وتحتاج إجراءات التسليم بين الورديات وتصعيد البلاغات إلى مسؤول محدد وسجل متابعة.</dd></div>
-    <div><dt>ميزانية التشغيل</dt><dd>لم تحدد المستندات المتاحة آلية مكتوبة لتوزيع تكلفة المستودع على مشاريع الجبيل الأربعة. يلزم الاتفاق على آلية التمويل لاستكمال الأعمال ومتابعة المصروفات.</dd></div>
-   </dl>
-  </article>
-  <article class="review-group">
-   <h3>قرارات مرفوعة للرئيس التنفيذي</h3>
-   <dl>
-    <div><dt>الحراسة والمراقبة</dt><dd>توجيه المشتريات والأمن لاستكمال عرض عقد الحراسة الخاص بالجبيل خلال أسبوع، وتوجيه المشتريات وتقنية المعلومات لتحديد نطاق مركز التحكم والقيادة وتكلفته.</dd></div>
-    <div><dt>الأعمال المدنية</dt><dd>تكليف الإنشاءات بإعداد مواصفة موحّدة للحاجز الدائم خلال أسبوع، واستكمال تسعير سفلتة الطرق تمهيداً لاعتماد الميزانية.</dd></div>
-    <div><dt>جاهزية المنشآت الجديدة</dt><dd>تكليف الرئيس التنفيذي للعمليات برفع آلية مشتركة خلال أسبوعين تحدد شروط بدء الاستلام، والجهة التي تعتمد الجاهزية، ومسؤول متابعة الملاحظات.</dd></div>
-   </dl>
-  </article>
- </div>
- <p class="review-status">الجهات والمدد الواردة أعلاه مقترحة. ترفع اللوجستيات نتيجة مطابقة الجرد وحالة التنفيذ ضمن متابعة أسبوعية مقترحة.</p>
- <p class="review-links"><a href="#incident">بيانات الحادثة</a> <a href="observations.html">الملاحظات الميدانية</a> <a href="plan.html#ceo">الخطة والتكاليف التفصيلية</a></p>
 </section>
 <section class="box summary-block" id="timeline" aria-labelledby="tl-title">
  <h2 id="tl-title">التسلسل الزمني للسرقة</h2>
