@@ -165,9 +165,10 @@
 .timeline-events > li {
   position: relative;
   display: grid;
-  grid-template-columns: 4.25rem minmax(0, 1fr);
+  grid-template-columns: 4.25rem minmax(7rem, 12rem) minmax(0, 1fr);
+  grid-template-areas: "time photo detail";
   gap: .65rem;
-  align-items: baseline;
+  align-items: start;
   padding: .58rem 0;
 }
 .timeline-events > li + li { border-block-start: 1px solid var(--line); }
@@ -181,11 +182,18 @@
   border-radius: 50%;
   background: var(--navy);
 }
-.timeline-events time { color: var(--navy); font-weight: 750; font-variant-numeric: tabular-nums; }
+.timeline-events time { grid-area: time; color: var(--navy); font-weight: 750; font-variant-numeric: tabular-nums; }
+.timeline-events > li > div { grid-area: detail; }
 .timeline-events h3 { margin: 0; font-size: 1rem; line-height: 1.5; }
 .timeline-events p { margin: .18rem 0 0; color: var(--muted); }
+.timeline-event-photo { grid-area: photo; border: 1px solid var(--line); border-radius: .3rem; overflow: hidden; background: #f4f6fb; }
+.timeline-event-photo img { aspect-ratio: 16 / 9; object-fit: contain; }
 .incident-timeline .incident-record-note { margin: .75rem 0 0; color: var(--muted); font-size: .88rem; }
 @media (max-width: 500px) {
   .timeline-durations { grid-template-columns: minmax(0, 1fr); }
-  .timeline-events > li { grid-template-columns: 3.4rem minmax(0, 1fr); }
+  .timeline-events > li {
+    grid-template-columns: 3.4rem minmax(0, 1fr);
+    grid-template-areas: "time detail" ". photo";
+  }
+  .timeline-event-photo { width: min(100%, 13rem); }
 }
