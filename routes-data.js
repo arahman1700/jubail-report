@@ -24,8 +24,8 @@ window.jubailRoutes = {
     },
     {
       id: "7ab",
-      nameAr: "محطة المجتمع 7AB",
-      nameEn: "Community Substation 7AB",
+      nameAr: "محطة 7AB",
+      nameEn: "7AB Substation",
       point: [451.2, 278.0],
       url: "https://maps.app.goo.gl/uMNhVTgMZy3qP4DK8?g_st=iw",
       directions: "https://www.google.com/maps/dir/?api=1&origin=Community+substation+7AB%2C+4734+Nakheel+Rd%2C+Al+Jubail&destination=26.747749%2C49.621419&travelmode=driving",
