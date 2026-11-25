@@ -114,3 +114,71 @@ a.pcard.need:hover{box-shadow:0 2px 10px rgba(36,43,116,.15)}
 }
 @media print{.acc-panel[hidden]{display:block !important}.acc-btn,.acc-close{display:none}}
 .ncard-pic img[src*="lock-container-hasp"]{object-position:50% 43%}
+
+/* Condensed plan overview */
+.ptabs{flex-wrap:wrap;overflow-x:visible}
+.ptabs a:focus-visible,.acc-btn:focus-visible,.acc-close:focus-visible,.fold>summary:focus-visible {
+  outline:2px solid var(--navy);
+  outline-offset:3px;
+}
+.hero-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hero-card{border-top-color:var(--navy)}
+.hero-card h3{margin:0}
+.exec-action,.exec-note,.exec-requirement p{margin:0}
+.exec-action,.exec-note,.exec-requirement p,.exec-milestones{font-size:.92rem}
+.exec-note,.exec-requirement p{color:var(--muted)}
+.exec-note{margin-block:0 .65rem}
+.exec-decisions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 1rem;
+  padding:.1rem 1rem;
+  border:1px solid var(--line);
+  background:var(--surface);
+}
+.exec-decision{
+  padding:.55rem 0;
+  border-block-end:1px solid var(--line);
+  scroll-margin-top:5rem;
+}
+.exec-decision:nth-last-child(-n+2){border-block-end:0}
+.exec-decision h3,.exec-requirement h3{margin:0;font-size:.96rem;line-height:1.5}
+.exec-requirements{display:grid;gap:.45rem}
+.exec-requirement{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.35rem 1rem;
+  padding:.55rem .85rem;
+  border:1px solid var(--line);
+  background:var(--surface);
+  scroll-margin-top:5rem;
+}
+.exec-requirement .acc-btn{flex:none;align-self:center;margin:0}
+.exec-requirement.is-open{border-color:var(--navy)}
+.exec-milestones{
+  list-style:none;
+  margin:0 0 .7rem;
+  padding:.05rem 1rem;
+  border:1px solid var(--line);
+  background:var(--surface);
+}
+.exec-milestones li{
+  display:grid;
+  grid-template-columns:8rem minmax(0,1fr);
+  gap:.1rem .65rem;
+  padding:.45rem 0;
+}
+.exec-milestones li+li{border-block-start:1px solid var(--line)}
+.exec-milestones strong{color:var(--navy)}
+@media(max-width:760px){
+  .hero-grid,.exec-decisions{grid-template-columns:minmax(0,1fr)}
+  .exec-decision:nth-last-child(2){border-block-end:1px solid var(--line)}
+}
+@media(max-width:490px){
+  .ptabs a{padding:.25rem .55rem;font-size:.83rem}
+  .exec-milestones li{grid-template-columns:1fr}
+  .exec-requirement{flex-wrap:wrap}
+}
+#opt-cloud,#opt-server{scroll-margin-top:5rem}
