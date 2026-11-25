@@ -18,6 +18,11 @@
 <style>.key-points{margin:.4rem 0.8rem;padding-inline-start:1.2rem;line-height:1.85}.key-points li{margin:.2rem 0}.incident-facts.compact dd{font-size:.92rem}</style>
  <link rel="stylesheet" href="summary.css">
  <script defer src="lang.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+ <link rel="stylesheet" href="routes.css">
+ <script defer src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+ <script defer src="routes-data.js"></script>
+ <script defer src="routes.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">انتقل إلى المحتوى</a>
@@ -34,19 +39,22 @@
  <h2 id="site-title">المستودع والموقع</h2>
  <div class="site-grid">
   <div class="site-profile">
-   <dl class="site-area-total">
+   <div class="site-area-brand">
+    <dl class="site-area-total">
     <dt>إجمالي مساحة الموقع</dt>
     <dd><strong><bdi>52,900</bdi> م²</strong></dd>
-   </dl>
+    </dl>
+    <img class="site-profile-logo" src="assets/logo.svg" alt="نسما للبنية التحتية والتقنية" width="143" height="31">
+   </div>
    <h3>توزيع مساحة الموقع</h3>
    <dl class="site-area-split">
     <div><dt>مجموع المساحات المحددة</dt><dd><strong><bdi>9,800</bdi> م²</strong><span>المستودعات والطرق والمرافق</span></dd></div>
     <div><dt>بقية مساحة الموقع</dt><dd><strong><bdi>43,100</bdi> م²</strong><span>لم تُفصّل استخداماتها في التوزيع المحدّث</span></dd></div>
    </dl>
    <dl class="site-facts">
-    <div><dt>المستودعات ووحدة التخزين</dt><dd><bdi>1,000</bdi> م² إجمالًا للمستودعين المغلقين ووحدة تخزين المولدات وخزان الديزل.</dd></div>
-    <div><dt>الطرق الداخلية</dt><dd><bdi>8,000</bdi> م² للطرق بين مناطق التخزين.</dd></div>
-    <div><dt>المكاتب والخدمات</dt><dd><bdi>800</bdi> م² إجمالًا لمكتب الأمن ومكتب موظفي المستودع ودورات المياه ووحدة خزانات المياه.</dd></div>
+    <div class="site-allocation-row"><dt><span class="site-icons" aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 10 12 4l10 6v11H2Z"/><path class="site-icon-accent" d="M6 12h12v9H6z"/><path d="M6 15h12M6 18h12"/></svg><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="site-icon-accent" d="M4 3h10v18H4z"/><path d="M3 21h12M6 6h6v4H6zM14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V9l-3-3M18 6v3l3 2"/></svg></span>المستودعات ووحدة التخزين</dt><dd><bdi>1,000</bdi> م² إجمالًا للمستودعين المغلقين ووحدة تخزين المولدات وخزان الديزل.</dd></div>
+    <div class="site-allocation-row"><dt><span class="site-icons" aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="site-icon-accent" d="M8 3h8l6 18H2z"/><path d="M12 4v3m0 3v3m0 4v3"/></svg></span>الطرق الداخلية</dt><dd><bdi>8,000</bdi> م² للطرق بين مناطق التخزين.</dd></div>
+    <div class="site-allocation-row"><dt><span class="site-icons" aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="site-icon-accent" d="M4 3h13v18H4z"/><path d="M17 10h4v11H2M7 7h1m3 0h1m-5 4h1m3 0h1m-5 4h1m3 0h1m-3 6v-3h3v3"/></svg></span>المكاتب والخدمات</dt><dd><bdi>800</bdi> م² إجمالًا لمكتب الأمن ومكتب موظفي المستودع ودورات المياه ووحدة خزانات المياه.</dd></div>
     <div><dt>حالة التنفيذ</dt><dd>المستودعان والمظلة تحت الإنشاء.</dd></div>
     <div><dt>السور</dt><dd>سور شبكي بطول يقارب <bdi>920</bdi> م.</dd></div>
    </dl>
@@ -59,31 +67,73 @@
   </div>
  </div>
 </section>
-<section class="box summary-block" id="incident" aria-labelledby="incident-data">
- <h2 id="incident-data">بيانات الحادثة</h2>
- <div class="inc-grid">
-  <div>
-   <p>سرقة نهاراً، يوم الجمعة <bdi>20</bdi> نوفمبر <bdi>2026</bdi> (ساعة الكاميرا): دخل شخصان ملثمان <bdi>09:43</bdi>، ثم دخلت مركبة <bdi>10:03</bdi> خرجت محمّلةً <bdi>10:13</bdi>.</p>
-   <div class="stolen">
-    <h3>ما سُرق</h3>
-    <ul>
-     <li><b>شريط نحاس</b> مقاس <bdi dir="ltr">40 × 6</bdi> مم</li>
-     <li><b><bdi>45</bdi> لفة</b>، بطول <bdi>1,120</bdi> م</li>
-     <li><b>القيمة: <bdi>154,750.40</bdi> ريالاً</b> (<bdi>138.17</bdi> ريالاً للمتر)</li>
-    </ul>
-   </div>
-   <div class="metrics">
-    <div><strong><bdi>30.5</bdi></strong><span>دقيقة من الدخول الأول إلى الخروج</span></div>
-    <div><strong><bdi>10.5</bdi></strong><span>دقيقة بقاء المركبة في الساحة</span></div>
-    <div><strong><bdi>59</bdi></strong><span>دقيقة بلا حارس ظاهر قبلها</span></div>
-   </div>
-   <dl class="fact-list incident-facts compact">
-  <div><dt>المركبة</dt><dd>مركبة، لوحتها تبدو <bdi>8833</bdi> (ثقة منخفضة). ثلاثة أشخاص ظاهرون عند <bdi>10:13:14</bdi>.</dd></div>
-  <div><dt>بلاغ الشرطة</dt><dd>مركز شرطة الجبيل البلد: <bdi>د 1888457</bdi> و<bdi>ط 575016</bdi> (التقرير الأولي).</dd></div>
-  <div><dt>القيمة</dt><dd>سعر المتر <bdi>138.17</bdi> ريالاً، والرصيد الدفتري قبل الفقد <bdi>2,470</bdi> م. <a href="assets/stock-record.xlsx" download>سجل المواد</a></dd></div>
- </dl>
+<section class="box summary-block" id="routes" aria-labelledby="routes-title">
+ <h2 id="routes-title">خريطة المشاريع ومستودع الجبيل المركزي</h2>
+ <div class="route-layout">
+  <div class="route-visual">
+   <div id="route-map" class="route-map" dir="ltr" aria-label="مسارات القيادة من المشاريع إلى مستودع الجبيل المركزي"><img src="assets/jubail-route-overview.webp" alt="مسارات القيادة من المشاريع إلى مستودع الجبيل المركزي" width="1280" height="990" loading="lazy"></div>
+   <div class="route-controls" data-map-controls hidden><button type="button" data-route="all" aria-pressed="true">عرض جميع المسارات</button></div>
+   <p class="route-map-status" data-map-status aria-live="polite" hidden></p>
+   <p class="src-note route-attribution">الخريطة الأساسية © Esri ومساهموها · <a href="https://www.openstreetmap.org/copyright">بيانات الطرق © مساهمو OpenStreetMap</a></p>
   </div>
-  <figure class="inc-fig"><button type="button" class="zoom" data-img="assets/tl/F1932-crop.jpg" data-title="10:13:49 · المركبة تخرج محمّلةً بلفائف بلون النحاس (CH14)"><img src="assets/tl/F1932-crop.jpg" alt="المركبة تخرج محمّلةً"></button><figcaption><bdi>10:13:49</bdi> · المركبة تخرج محمّلةً بلفائف بلون النحاس (CH14، تكبير من اللقطة الأصلية F1932)</figcaption></figure>
+  <div class="route-sidebar">
+   <div class="route-area"><span>مساحة المستودع المركزي</span><strong><bdi>52,900</bdi> م²</strong><div class="route-links"><a href="https://maps.app.goo.gl/LhXFRSCnG5BAKFH79" target="_blank" rel="noopener noreferrer">عرض موقع المستودع في Google Maps</a> <a href="#site">توزيع مساحة الموقع</a></div></div>
+   <h3>المشاريع والمسافات إلى المستودع</h3>
+   <ul class="route-list">
+    <li class="route-card" data-route-card="north" style="--route-color:#28559B">
+     <h4><span class="route-index">1</span> <bdi>محطة شمال الجبيل</bdi></h4>
+     <dl class="route-metric"><div><dt>المسافة بالسيارة</dt><dd><bdi>57.2</bdi> كم</dd></div><div><dt>11 صباحاً</dt><dd><bdi>40–55</bdi> دقيقة</dd></div><div><dt>5 مساءً</dt><dd><bdi>40–60</bdi> دقيقة</dd></div></dl>
+     <div class="route-links"><button type="button" data-route="north" aria-pressed="false" hidden>تحديد على الخريطة</button> <a href="https://maps.app.goo.gl/DUmVN4vzsYVEy6qB7?g_st=iw" target="_blank" rel="noopener noreferrer">عرض الموقع</a> <a class="route-directions" href="https://www.google.com/maps/dir/?api=1&amp;origin=3G5W%2BGXH+Jubail+North+Substation%2C+Al+Jubail&amp;destination=26.747749%2C49.621419&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">اتجاهات القيادة</a></div>
+    </li>
+    <li class="route-card" data-route-card="south-east" style="--route-color:#007A81">
+     <h4><span class="route-index">2</span> <bdi>محطة جنوب شرق الجبيل</bdi></h4>
+     <dl class="route-metric"><div><dt>المسافة بالسيارة</dt><dd><bdi>49.4</bdi> كم</dd></div><div><dt>11 صباحاً</dt><dd><bdi>40–60</bdi> دقيقة</dd></div><div><dt>5 مساءً</dt><dd><bdi>40–65</bdi> دقيقة</dd></div></dl>
+     <div class="route-links"><button type="button" data-route="south-east" aria-pressed="false" hidden>تحديد على الخريطة</button> <a href="https://maps.app.goo.gl/tympEsSMKVP1eyhv6?g_st=iw" target="_blank" rel="noopener noreferrer">عرض الموقع</a> <a class="route-directions" href="https://www.google.com/maps/dir/?api=1&amp;origin=Jubail+South+East+S%2FS%2C+8994+Road+143%2C+Al+Jubail&amp;destination=26.747749%2C49.621419&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">اتجاهات القيادة</a></div>
+    </li>
+    <li class="route-card" data-route-card="7ab" style="--route-color:#9B500B">
+     <h4><span class="route-index">3</span> <bdi>محطة المجتمع 7AB</bdi></h4>
+     <dl class="route-metric"><div><dt>المسافة بالسيارة</dt><dd><bdi>58.6</bdi> كم</dd></div><div><dt>11 صباحاً</dt><dd><bdi>35–55</bdi> دقيقة</dd></div><div><dt>5 مساءً</dt><dd><bdi>35–60</bdi> دقيقة</dd></div></dl>
+     <div class="route-links"><button type="button" data-route="7ab" aria-pressed="false" hidden>تحديد على الخريطة</button> <a href="https://maps.app.goo.gl/uMNhVTgMZy3qP4DK8?g_st=iw" target="_blank" rel="noopener noreferrer">عرض الموقع</a> <a class="route-directions" href="https://www.google.com/maps/dir/?api=1&amp;origin=Community+substation+7AB%2C+4734+Nakheel+Rd%2C+Al+Jubail&amp;destination=26.747749%2C49.621419&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">اتجاهات القيادة</a></div>
+    </li>
+   </ul>
+  </div>
+ </div>
+ <p class="src-note route-source">المسافات ونطاقات القيادة من تقديرات Google Maps الواردة في المرجع ليوم 25 نوفمبر 2026، بتوقيت السعودية. تعرض روابط الاتجاهات تقدير وقت القيادة عند فتحها.</p>
+</section>
+<section class="box summary-block incident-summary" id="incident" aria-labelledby="incident-data">
+ <h2 id="incident-data">بيانات الحادثة</h2>
+ <p class="incident-date"><time datetime="2026-11-20">الجمعة 20 نوفمبر 2026</time></p>
+ <h3>الخسارة التقديرية للمخزون</h3>
+ <dl class="loss-summary">
+  <div><dt>القيمة التقديرية</dt><dd><bdi>154,750.40</bdi> <span>ريال</span></dd></div>
+  <div><dt>الكمية الواردة في التقرير الأولي</dt><dd><bdi>45</bdi> <span>لفة</span></dd></div>
+  <div><dt>إجمالي طول شريط النحاس</dt><dd><bdi>1,120</bdi> <span>متر</span></dd></div>
+ </dl>
+ <p class="src-note">شريط نحاس بمقاس <bdi>40 × 6</bdi> مم. احتُسبت القيمة بسعر <bdi>138.17</bdi> ريالاً للمتر، ويُعتمد المبلغ بعد مطابقة الجرد.</p>
+ <div class="inc-grid incident-layout">
+  <div>
+   <h3>التسلسل حسب تسجيلات الكاميرات</h3>
+   <p class="incident-time-note">الأوقات بحسب ساعة الكاميرا. المدد تقريبية.</p>
+   <ol class="incident-checkpoints">
+    <li><bdi>09:36</bdi><span>أول ظهور لمركبة في التسجيلات</span></li>
+    <li><bdi>09:43</bdi><span>أول دخول مرصود لأشخاص إلى الموقع</span></li>
+    <li><bdi>10:03</bdi><span>دخول المركبة إلى الموقع</span></li>
+    <li><bdi>10:13</bdi><span>مغادرة المركبة وهي محمّلة</span></li>
+   </ol>
+   <dl class="incident-windows">
+    <div><dt>نحو <bdi>30.5</bdi> دقيقة</dt><dd>من أول دخول مرصود حتى مغادرة المركبة</dd></div>
+    <div><dt>نحو <bdi>10.5</bdi> دقيقة</dt><dd>من دخول المركبة حتى مغادرتها</dd></div>
+   </dl>
+   <p class="incident-record-note">الفاصل بين رصد الأشخاص ودخول المركبة نحو <bdi>20</bdi> دقيقة. تحديد مدة بقاء الأشخاص يتطلب توثيق وقت مغادرتهم. ورُصد تغيّر في اتجاه إحدى الكاميرات أثناء الحادثة، وسبب التغيّر يحتاج إلى تحقق.</p>
+   <a class="incident-timeline-link" href="#timeline">عرض التسلسل الزمني</a>
+  </div>
+  <div class="incident-media">
+   <figure class="inc-fig"><button type="button" class="zoom" data-img="assets/tl/F1932-crop.jpg" data-title="10:13:49 · المركبة تخرج محمّلةً بلفائف بلون النحاس (CH14)"><img src="assets/tl/F1932-crop.jpg" alt="المركبة تخرج محمّلةً"></button><figcaption><bdi>10:13:49</bdi> · المركبة تخرج محمّلةً بلفائف بلون النحاس (CH14، تكبير من اللقطة الأصلية F1932)</figcaption></figure>
+   <dl class="fact-list incident-facts compact">
+    <div><dt>بلاغ الشرطة</dt><dd>مركز شرطة الجبيل البلد: <bdi>د 1888457</bdi> و<bdi>ط 575016</bdi> (التقرير الأولي).</dd></div>
+    <div><dt>سجل المواد</dt><dd>الرصيد الدفتري قبل الفقد <bdi>2,470</bdi> م. <a href="assets/stock-record.xlsx" download>سجل المواد</a></dd></div>
+   </dl>
+  </div>
  </div>
 </section>
 <section class="box summary-block executive-review" id="causes" aria-labelledby="causes-title">

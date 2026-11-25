@@ -19,6 +19,11 @@
 <style>.key-points{margin:.4rem 0.8rem;padding-inline-start:1.2rem;line-height:1.85}.key-points li{margin:.2rem 0}.incident-facts.compact dd{font-size:.92rem}</style>
  <link rel="stylesheet" href="summary.css">
  <script defer src="lang.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+ <link rel="stylesheet" href="routes.css">
+ <script defer src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+ <script defer src="routes-data.js"></script>
+ <script defer src="routes.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -35,19 +40,22 @@
  <h2 id="site-title">Warehouse and site</h2>
  <div class="site-grid">
   <div class="site-profile">
-   <dl class="site-area-total">
+   <div class="site-area-brand">
+    <dl class="site-area-total">
     <dt>Total site area</dt>
     <dd><strong>52,900 m²</strong></dd>
-   </dl>
+    </dl>
+    <img class="site-profile-logo" src="assets/logo.svg" alt="Nesma Infrastructure &amp; Technology" width="143" height="31">
+   </div>
    <h3>Site area allocation</h3>
    <dl class="site-area-split">
     <div><dt>Subtotal for specified uses</dt><dd><strong>9,800 m²</strong><span>Warehouses, roads and facilities</span></dd></div>
     <div><dt>Remaining site area</dt><dd><strong>43,100 m²</strong><span>Uses are unspecified in the updated breakdown</span></dd></div>
    </dl>
    <dl class="site-facts">
-    <div><dt>Warehouses and storage unit</dt><dd>1,000 m² in total for the two enclosed warehouses and the generator and diesel tank storage unit.</dd></div>
-    <div><dt>Internal roads</dt><dd>8,000 m² for roads between storage areas.</dd></div>
-    <div><dt>Offices and services</dt><dd>800 m² in total for the security office, warehouse staff office, restrooms and water tank unit.</dd></div>
+    <div class="site-allocation-row"><dt><span class="site-icons" aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 10 12 4l10 6v11H2Z"/><path class="site-icon-accent" d="M6 12h12v9H6z"/><path d="M6 15h12M6 18h12"/></svg><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="site-icon-accent" d="M4 3h10v18H4z"/><path d="M3 21h12M6 6h6v4H6zM14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V9l-3-3M18 6v3l3 2"/></svg></span>Warehouses and storage unit</dt><dd>1,000 m² in total for the two enclosed warehouses and the generator and diesel tank storage unit.</dd></div>
+    <div class="site-allocation-row"><dt><span class="site-icons" aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="site-icon-accent" d="M8 3h8l6 18H2z"/><path d="M12 4v3m0 3v3m0 4v3"/></svg></span>Internal roads</dt><dd>8,000 m² for roads between storage areas.</dd></div>
+    <div class="site-allocation-row"><dt><span class="site-icons" aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="site-icon-accent" d="M4 3h13v18H4z"/><path d="M17 10h4v11H2M7 7h1m3 0h1m-5 4h1m3 0h1m-5 4h1m3 0h1m-3 6v-3h3v3"/></svg></span>Offices and services</dt><dd>800 m² in total for the security office, warehouse staff office, restrooms and water tank unit.</dd></div>
     <div><dt>Construction status</dt><dd>The two warehouses and the canopy are under construction.</dd></div>
     <div><dt>Fence</dt><dd>The yard has approximately 920 m of mesh fencing.</dd></div>
    </dl>
@@ -60,31 +68,73 @@
   </div>
  </div>
 </section>
-<section class="box summary-block" id="incident" aria-labelledby="incident-data">
- <h2 id="incident-data">Incident details</h2>
- <div class="inc-grid">
-  <div>
-   <p>Daytime theft, Friday <bdi>20</bdi> November <bdi>2026</bdi> (camera clock): two masked persons entered at <bdi>09:43</bdi>, followed by a vehicle at <bdi>10:03</bdi>. The vehicle left loaded at <bdi>10:13</bdi>.</p>
-   <div class="stolen">
-    <h3>What was stolen</h3>
-    <ul>
-     <li><b>Copper strip</b>, size <bdi dir="ltr">40 × 6</bdi> mm</li>
-     <li><b><bdi>45</bdi> rolls</b>, <bdi>1,120</bdi> m in length</li>
-     <li><b>Value: <bdi>154,750.40</bdi> SAR</b> (<bdi>138.17</bdi> SAR per metre)</li>
-    </ul>
-   </div>
-   <div class="metrics">
-    <div><strong><bdi>30.5</bdi></strong><span>minutes from first entry to exit</span></div>
-    <div><strong><bdi>10.5</bdi></strong><span>minutes the vehicle stayed in the yard</span></div>
-    <div><strong><bdi>59</bdi></strong><span>minutes with no visible guard before it</span></div>
-   </div>
-   <dl class="fact-list incident-facts compact">
-  <div><dt>Vehicle</dt><dd>The vehicle’s registration number appears to be <bdi>8833</bdi> (low confidence). Three people were visible at <bdi>10:13:14</bdi>.</dd></div>
-  <div><dt>Police report</dt><dd>Jubail Al-Balad police station: <bdi>د 1888457</bdi> and <bdi>ط 575016</bdi> (preliminary report).</dd></div>
-  <div><dt>Value</dt><dd>Price per metre <bdi>138.17</bdi> SAR, and book balance before the loss <bdi>2,470</bdi> m. <a href="assets/stock-record.xlsx" download>Materials register</a></dd></div>
- </dl>
+<section class="box summary-block" id="routes" aria-labelledby="routes-title">
+ <h2 id="routes-title">Project routes to the Jubail Central Warehouse</h2>
+ <div class="route-layout">
+  <div class="route-visual">
+   <div id="route-map" class="route-map" dir="ltr" aria-label="Driving routes from the projects to the Jubail Central Warehouse"><img src="assets/jubail-route-overview.webp" alt="Driving routes from the projects to the Jubail Central Warehouse" width="1280" height="990" loading="lazy"></div>
+   <div class="route-controls" data-map-controls hidden><button type="button" data-route="all" aria-pressed="true">Show all routes</button></div>
+   <p class="route-map-status" data-map-status aria-live="polite" hidden></p>
+   <p class="src-note route-attribution">Basemap © Esri and contributors · <a href="https://www.openstreetmap.org/copyright">Road data © OpenStreetMap contributors</a></p>
   </div>
-  <figure class="inc-fig"><button type="button" class="zoom" data-img="assets/tl/F1932-crop.jpg" data-title="10:13:49 · The vehicle leaves loaded with copper-coloured rolls (CH14)"><img src="assets/tl/F1932-crop.jpg" alt="The vehicle leaves loaded"></button><figcaption><bdi>10:13:49</bdi> · The vehicle leaves loaded with copper-coloured rolls (CH14, enlargement from the original frame F1932)</figcaption></figure>
+  <div class="route-sidebar">
+   <div class="route-area"><span>Central warehouse site area</span><strong><bdi>52,900</bdi> m²</strong><div class="route-links"><a href="https://maps.app.goo.gl/LhXFRSCnG5BAKFH79" target="_blank" rel="noopener noreferrer">View the warehouse in Google Maps</a> <a href="#site">Site area breakdown</a></div></div>
+   <h3>Projects and distances to the warehouse</h3>
+   <ul class="route-list">
+    <li class="route-card" data-route-card="north" style="--route-color:#28559B">
+     <h4><span class="route-index">1</span> <bdi>Jubail North Substation</bdi></h4>
+     <dl class="route-metric"><div><dt>Driving distance</dt><dd><bdi>57.2</bdi> km</dd></div><div><dt>11 am</dt><dd><bdi>40–55</bdi> min</dd></div><div><dt>5 pm</dt><dd><bdi>40–60</bdi> min</dd></div></dl>
+     <div class="route-links"><button type="button" data-route="north" aria-pressed="false" hidden>Highlight on map</button> <a href="https://maps.app.goo.gl/DUmVN4vzsYVEy6qB7?g_st=iw" target="_blank" rel="noopener noreferrer">View location</a> <a class="route-directions" href="https://www.google.com/maps/dir/?api=1&amp;origin=3G5W%2BGXH+Jubail+North+Substation%2C+Al+Jubail&amp;destination=26.747749%2C49.621419&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">Driving directions</a></div>
+    </li>
+    <li class="route-card" data-route-card="south-east" style="--route-color:#007A81">
+     <h4><span class="route-index">2</span> <bdi>Jubail South East S/S</bdi></h4>
+     <dl class="route-metric"><div><dt>Driving distance</dt><dd><bdi>49.4</bdi> km</dd></div><div><dt>11 am</dt><dd><bdi>40–60</bdi> min</dd></div><div><dt>5 pm</dt><dd><bdi>40–65</bdi> min</dd></div></dl>
+     <div class="route-links"><button type="button" data-route="south-east" aria-pressed="false" hidden>Highlight on map</button> <a href="https://maps.app.goo.gl/tympEsSMKVP1eyhv6?g_st=iw" target="_blank" rel="noopener noreferrer">View location</a> <a class="route-directions" href="https://www.google.com/maps/dir/?api=1&amp;origin=Jubail+South+East+S%2FS%2C+8994+Road+143%2C+Al+Jubail&amp;destination=26.747749%2C49.621419&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">Driving directions</a></div>
+    </li>
+    <li class="route-card" data-route-card="7ab" style="--route-color:#9B500B">
+     <h4><span class="route-index">3</span> <bdi>Community Substation 7AB</bdi></h4>
+     <dl class="route-metric"><div><dt>Driving distance</dt><dd><bdi>58.6</bdi> km</dd></div><div><dt>11 am</dt><dd><bdi>35–55</bdi> min</dd></div><div><dt>5 pm</dt><dd><bdi>35–60</bdi> min</dd></div></dl>
+     <div class="route-links"><button type="button" data-route="7ab" aria-pressed="false" hidden>Highlight on map</button> <a href="https://maps.app.goo.gl/uMNhVTgMZy3qP4DK8?g_st=iw" target="_blank" rel="noopener noreferrer">View location</a> <a class="route-directions" href="https://www.google.com/maps/dir/?api=1&amp;origin=Community+substation+7AB%2C+4734+Nakheel+Rd%2C+Al+Jubail&amp;destination=26.747749%2C49.621419&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">Driving directions</a></div>
+    </li>
+   </ul>
+  </div>
+ </div>
+ <p class="src-note route-source">Distances and time ranges are from the reference presentation’s Google Maps estimates for 25 November 2026, Saudi time. Open the directions links for the current estimate.</p>
+</section>
+<section class="box summary-block incident-summary" id="incident" aria-labelledby="incident-data">
+ <h2 id="incident-data">Incident details</h2>
+ <p class="incident-date"><time datetime="2026-11-20">Friday, 20 November 2026</time></p>
+ <h3>Estimated inventory loss</h3>
+ <dl class="loss-summary">
+  <div><dt>Estimated value</dt><dd><bdi>154,750.40</bdi> <span>SAR</span></dd></div>
+  <div><dt>Quantity in the preliminary report</dt><dd><bdi>45</bdi> <span>rolls</span></dd></div>
+  <div><dt>Total length of copper strip</dt><dd><bdi>1,120</bdi> <span>metres</span></dd></div>
+ </dl>
+ <p class="src-note">Copper strip, <bdi>40 × 6</bdi> mm. The estimate uses <bdi>138.17</bdi> SAR per metre. The amount is subject to inventory reconciliation.</p>
+ <div class="inc-grid incident-layout">
+  <div>
+   <h3>Timeline from camera recordings</h3>
+   <p class="incident-time-note">Times are from the camera clock. Durations are approximate.</p>
+   <ol class="incident-checkpoints">
+    <li><bdi>09:36</bdi><span>First appearance of a vehicle in the footage</span></li>
+    <li><bdi>09:43</bdi><span>First recorded entry by people</span></li>
+    <li><bdi>10:03</bdi><span>Vehicle enters the site</span></li>
+    <li><bdi>10:13</bdi><span>The vehicle leaves carrying a load</span></li>
+   </ol>
+   <dl class="incident-windows">
+    <div><dt>About <bdi>30.5</bdi> minutes</dt><dd>From the first recorded entry to the vehicle’s departure</dd></div>
+    <div><dt>About <bdi>10.5</bdi> minutes</dt><dd>From the vehicle’s arrival to its departure</dd></div>
+   </dl>
+   <p class="incident-record-note">About <bdi>20</bdi> minutes elapsed between the first sighting of people and the vehicle’s entry. Establishing how long the people stayed requires a verified departure time. A camera’s view shifted during the incident. The cause remains under review.</p>
+   <a class="incident-timeline-link" href="#timeline">View the full timeline</a>
+  </div>
+  <div class="incident-media">
+   <figure class="inc-fig"><button type="button" class="zoom" data-img="assets/tl/F1932-crop.jpg" data-title="10:13:49 · The vehicle leaves loaded with copper-coloured rolls (CH14)"><img src="assets/tl/F1932-crop.jpg" alt="The vehicle leaves loaded"></button><figcaption><bdi>10:13:49</bdi> · The vehicle leaves loaded with copper-coloured rolls (CH14, enlargement from the original frame F1932)</figcaption></figure>
+   <dl class="fact-list incident-facts compact">
+    <div><dt>Police report</dt><dd>Jubail Al-Balad police station: <bdi>د 1888457</bdi> and <bdi>ط 575016</bdi> (preliminary report).</dd></div>
+    <div><dt>Materials register</dt><dd>Book balance before the loss <bdi>2,470</bdi> m. <a href="assets/stock-record.xlsx" download>Materials register</a></dd></div>
+   </dl>
+  </div>
  </div>
 </section>
 <section class="box summary-block executive-review" id="causes" aria-labelledby="causes-title">

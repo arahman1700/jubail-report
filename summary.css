@@ -122,3 +122,101 @@
 @media print {
   .executive-review dl > div { break-inside: avoid; }
 }
+
+.incident-summary .incident-date {
+  margin: -.2rem 0 .85rem;
+  color: var(--muted);
+}
+.incident-summary h3 {
+  margin: .2rem 0 .45rem;
+  font-size: 1.06rem;
+}
+.loss-summary, .incident-windows {
+  display: grid;
+  gap: .55rem;
+  margin: 0;
+}
+.loss-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.loss-summary > div, .incident-windows > div {
+  padding: .65rem .8rem;
+  border: 1px solid var(--line);
+  background: #f4f6fb;
+}
+.loss-summary > div:first-child { border-inline-start: 4px solid var(--navy); }
+.loss-summary dt { color: var(--muted); font-size: .85rem; font-weight: 650; }
+.loss-summary dd, .incident-windows dd { margin: 0; }
+.loss-summary dd { color: var(--navy); font-size: 1.35rem; font-weight: 750; }
+.loss-summary dd span { font-size: .85rem; }
+.incident-layout { margin-block-start: 1.05rem; }
+.incident-time-note { color: var(--muted); font-size: .84rem; margin: .1rem 0 .6rem; }
+.incident-checkpoints { list-style: none; margin: 0 0 .65rem; padding: 0; }
+.incident-checkpoints li {
+  display: grid;
+  grid-template-columns: 4.55rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: .65rem;
+  padding: .5rem .25rem;
+  border-block-end: 1px solid var(--line);
+}
+.incident-checkpoints bdi { color: var(--navy); font-weight: 750; }
+.incident-windows { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.incident-windows dt { color: var(--navy); font-weight: 700; }
+.incident-windows dd, .incident-record-note { color: var(--muted); font-size: .88rem; }
+.incident-record-note { margin: .65rem 0 .35rem; }
+.incident-timeline-link { font-size: .9rem; }
+.incident-media { min-width: 0; }
+@media (max-width: 500px) {
+  .loss-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .loss-summary > div:first-child { grid-column: 1 / -1; }
+  .incident-windows { grid-template-columns: minmax(0, 1fr); }
+}
+
+#site .site-profile .site-area-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .4rem 1rem;
+  margin: .4rem 0 1rem;
+  padding: .7rem .85rem;
+  border-inline-start: 4px solid #2e3192;
+  background: #f4f7fc;
+}
+#site .site-profile .site-area-brand .site-area-total {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+#site .site-profile .site-profile-logo { width: clamp(5.5rem, 15vw, 7.6rem); height: auto; }
+#site .site-profile .site-allocation-row {
+  position: relative;
+  grid-template-columns: 1fr;
+  padding-block: .55rem;
+  padding-inline-start: 4.05rem;
+}
+#site .site-profile .site-icons {
+  position: absolute;
+  inset-block-start: .6rem;
+  inset-inline-start: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .16rem;
+  width: 3.45rem;
+  min-height: 2.25rem;
+  border-radius: .3rem;
+  background: #e9f5fb;
+  color: #2e3192;
+}
+#site .site-profile .site-icon {
+  display: block;
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+#site .site-profile .site-icon-accent { fill: #80d1e9; }
